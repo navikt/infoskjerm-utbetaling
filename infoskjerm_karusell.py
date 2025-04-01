@@ -45,4 +45,4 @@ except Exception as e:
     print("En feil oppstod:", e)
     pass
 
-print("Avsluttet infoskjerm_browser.py klokka", time.strftime("%H:%M:%S"))
+print("Avsluttet infoskjerm_karusell.py klokka", time.strftime("%H:%M:%S"))
