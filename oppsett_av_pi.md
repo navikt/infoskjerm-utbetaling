@@ -23,6 +23,7 @@ Se full guide i Guide.md
     @xset s noblank
 
     # starter bash-script i infoskjerm-karusell
-    @lxterminal -t lxterm -e /home/pi/Desktop/infoskjerm-karusell/karusell.sh
+    @lxterminal -t tidsbuffer ... # mulig en liten sleep(5) er nødvendig
+    @lxterminal -t karusell_starter -e /home/pi/Desktop/infoskjerm-karusell/karusell.sh
     ````
 9. `sudo reboot`
