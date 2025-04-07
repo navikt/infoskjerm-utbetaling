@@ -33,6 +33,9 @@ with pyautogui.hold(cmd):
     time.sleep(0.5)
     pyautogui.press("w")
 
+# gå i fullskjerm
+pyautogui.hotkey("f11")
+
 loop = 0
 alle_fanenummerene = [str(i + 1) for i in range(len(nettsider))]
 
