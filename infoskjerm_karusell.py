@@ -8,7 +8,7 @@ nettsider = nettsidelenker.nettsider
 
 mac = False
 cmd = "command" if mac else "ctrl"
-tid_i_hver_fane = 60  # seconds
+tid_i_hver_fane = 20  # seconds
 
 
 # åpner google.com for å slippe "vil du gjenåpne faner" melding
