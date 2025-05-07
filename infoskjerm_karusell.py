@@ -3,7 +3,7 @@ import pyautogui
 import webbrowser
 
 import nettsidelenker
-standardsider = nettsidelenker.standardsider
+nettsider = nettsidelenker.standardsider
 
 # dette er filteret for hvilke sider som skal vises i nettsidelenker.py
 try:
@@ -11,7 +11,7 @@ try:
     nettsider = []
     for liste in aktive_sider.vis_følgende_lister_med_sider:
         if liste == "standardsider":
-            nettsider += standardsider
+            nettsider += nettsidelenker.standardsider
         elif liste == "uføre":
             nettsider += nettsidelenker.uføre
         elif liste == "alderspensjon":
