@@ -3,6 +3,8 @@
 Se full guide i Guide.md
 
 1. Koble til wifi 'infoskjerm'
+    - wifi-kortet til Rpien må whitelistes.
+    - skriv `ifconfig` i terminalen og send det etter "ether" under "wlan0" til Trond Aker (#tech-nettverk)
 2. Logg inn på AD-brukeren 'srvdevinfoskjerm111@nav.no'
     - Passord for wifi og sørvisbruker i GSM
     - Logg feks inn på: https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae
