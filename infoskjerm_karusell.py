@@ -3,7 +3,7 @@ import pyautogui
 import webbrowser
 
 import nettsidelenker
-nettsider = nettsidelenker.standardsider
+nettsider = nettsidelenker.standardsider  # default
 
 # dette er filteret for hvilke sider som skal vises i nettsidelenker.py
 try:
@@ -34,8 +34,7 @@ with pyautogui.hold(cmd):
     pyautogui.press("w")
 time.sleep(1)
 
-
-# åpner en nav-side som lukkes etter 30 sekunder, som løser redirect ved AD-innlogging
+# åpner en innlogget nav-side som lukkes etter litt. Det løser redirect ved AD-innlogging
 temp_nav_side = "https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae/bemanning.html"
 webbrowser.open(temp_nav_side)
 time.sleep(10)
@@ -52,10 +51,6 @@ with pyautogui.hold(cmd):
 # gå i fullskjerm
 pyautogui.hotkey("f11")
 
-# zoom inn 4 ganger for å få større skrift
-for _ in range(4):
-    pyautogui.hotkey(cmd, "+")
-    time.sleep(0.5)
 
 loop = 0
 alle_fanenummerene = [str(i + 1) for i in range(len(nettsider))]
@@ -65,7 +60,7 @@ try:
         for fanenummer in alle_fanenummerene:
             with pyautogui.hold(cmd):
                 pyautogui.press(fanenummer)  # bytter fane med cmd+1, cmd+2 osv
-                if loop % 10 == 0:
+                if loop % 100 == 0:
                     pyautogui.press("r")  # kjører en refresh av fanen innimellom
             time.sleep(tid_i_hver_fane)
         loop += 1
