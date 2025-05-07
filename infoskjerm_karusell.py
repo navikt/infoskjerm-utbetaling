@@ -1,10 +1,26 @@
 import time
-import socket
 import pyautogui
 import webbrowser
 
 import nettsidelenker
-nettsider = nettsidelenker.nettsider
+standardsider = nettsidelenker.standardsider
+
+# dette er filteret for hvilke sider som skal vises i nettsidelenker.py
+try:
+    import aktive_sider
+    nettsider = []
+    for liste in aktive_sider.vis_følgende_lister_med_sider:
+        if liste == "standardsider":
+            nettsider += standardsider
+        elif liste == "uføre":
+            nettsider += nettsidelenker.uføre
+        elif liste == "alderspensjon":
+            nettsider += nettsidelenker.alderspensjon
+        else:
+            print(f"Ukjent liste: {liste}")
+except ImportError:
+    print("aktive_sider.py ble ikke funnet. Ingen ekstra sider åpnes, kun standardsider.")
+    pass
 
 mac = False
 cmd = "command" if mac else "ctrl"
