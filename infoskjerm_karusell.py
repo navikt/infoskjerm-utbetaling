@@ -52,6 +52,11 @@ with pyautogui.hold(cmd):
 # gå i fullskjerm
 pyautogui.hotkey("f11")
 
+# zoom inn 4 ganger for å få større skrift
+for _ in range(4):
+    pyautogui.hotkey(cmd, "+")
+    time.sleep(0.5)
+
 loop = 0
 alle_fanenummerene = [str(i + 1) for i in range(len(nettsider))]
 
