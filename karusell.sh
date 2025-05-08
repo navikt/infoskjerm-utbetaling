@@ -14,5 +14,5 @@ done
 
 # Starter infoskjerm-karusell 
 sleep 5
-lxterminal -t Karusellen -e 'sleep 2; cd /home/pi/Desktop/infoskjerm-karusell; git pull; sleep 2; 
+lxterminal -t Karusellen -e 'sleep 2; cd ~/Desktop/infoskjerm-karusell; git pull; sleep 2; 
 . .venv/bin/activate; python3 infoskjerm_karusell.py; exec bash'
