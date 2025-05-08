@@ -3,7 +3,7 @@
 Se full guide i Guide.md
 
 1. Koble til wifi 'infoskjerm'
-    - wifi-kortet til Rpien må whitelistes.
+    - wifi-kortet til Rpien må whitelistes
     - skriv `ifconfig` i terminalen og send det etter "ether" under "wlan0" til Trond Aker (#tech-nettverk)
 2. Logg inn på AD-brukeren 'srvdevinfoskjerm111@nav.no'
     - Passord for wifi og sørvisbruker i GSM
@@ -17,15 +17,19 @@ Se full guide i Guide.md
 8. `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` og legg til følgende linjer:
     
     ````bash
-    @xscreensaver -no-splash # usikker på denne
+    ... # to linjer som allerede er der
 
     # skrur av skjermsparer og flytter vekk muspekeren
+    @xscreensaver -no-splash
     @xset s off
     @xset -dpms
     @xset s noblank
 
-    # starter bash-script i infoskjerm-karusell
-    @lxterminal -t tidsbuffer ... # mulig en liten sleep(5) er nødvendig
-    @lxterminal -t karusell_starter -e /home/pi/Desktop/infoskjerm-karusell/karusell.sh
+    # starter bash-script i infoskjerm-karusell etter 5 sekunder pause
+    @lxterminal -t temp -e 'sleep 5; ls -a'
+    @lxterminal -t karusell_starter -e ~/Desktop/infoskjerm-karusell/karusell.sh
     ````
 9. `sudo reboot`
+
+
+Husk å zoome i nettleseren til passe størrelse. Det blir laget ved reboot.
