@@ -28,7 +28,7 @@ tid_i_hver_fane = 20  # seconds
 
 
 # åpner google.com for å slippe "vil du gjenåpne faner" melding
-webbrowser.open("https://www.google.com")
+webbrowser.get("chromium-browser").open("https://www.google.com")
 time.sleep(4)
 with pyautogui.hold(cmd):
     pyautogui.press("w")
@@ -36,12 +36,12 @@ time.sleep(1)
 
 # åpner en innlogget nav-side som lukkes etter litt. Det løser redirect ved AD-innlogging
 temp_nav_side = "https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae/bemanning.html"
-webbrowser.open(temp_nav_side)
+webbrowser.get("chromium-browser").open(temp_nav_side)
 time.sleep(10)
 
 # åpne alle faner og lukker temp_nav_side
 for tab in nettsider:
-    webbrowser.open(tab)
+    webbrowser.get("chromium-browser").open(tab)
     time.sleep(1)
 with pyautogui.hold(cmd):
     pyautogui.press("1")
