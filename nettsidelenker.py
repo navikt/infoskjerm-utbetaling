@@ -4,11 +4,11 @@
 # Disse vises på alle skjermer
 standardsider = [
     # Quarto - Infoskjerm i A6
-    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#pensjonsytelser',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#pesysytelser',
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8retrygd',
-    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#alderspensjon-og-afp',
-    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#tall-fra-offentlig-statistikknotat',
-    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#tall-fra-offentlig-statistikknotat-2',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#alder-og-afp',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re-statistikknotat',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re-statistikknotat-2',
 
     # Quarto - Månedlige uføremottakere (offentlig statistikk)
     'https://data.ansatt.nav.no/quarto/d1e4cefc-2658-4519-a8c0-0f29db301d9d/uforemottakere.html#plott-og-tabell',
@@ -16,6 +16,7 @@ standardsider = [
 
     # Quarto - bemanning
     'https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae/bemanning.html#pensjonsomr%C3%A5det',
+    'https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae/bemanning.html#d-plott',
     # 'https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae/bemanning.html#poene-2d-plott',
 
     # Quarto - Hvor er damene?
@@ -43,6 +44,21 @@ uføre = [
     # 'https://metabase.ansatt.nav.no/public/dashboard/72aa5771-9693-4369-b270-bd3c28798523?e-nr=E261&spesifikk_m%25C3%25A5ned=&tab=339-status-per-team&valgt_team=Pesys-Uf%C3%B8re',
     
 ]
+
+
+ambisjoner_opm = [
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#seksjonen',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#ambisjon-1',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#ambisjon-2',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm1',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm2',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm3',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm4',
+]
+
+# temp:
+standardsider = standardsider + ambisjoner_opm
+
 
 alderspensjon = [
     "",
