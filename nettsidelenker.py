@@ -5,7 +5,7 @@
 standardsider = [
     # Quarto - Infoskjerm i A6
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#pesysytelser',
-    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8retrygd',
+    'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re',
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#alder-og-afp',
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re-statistikknotat',
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re-statistikknotat-2',
