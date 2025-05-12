@@ -28,31 +28,23 @@ except ImportError:
 mac = False
 cmd = "command" if mac else "ctrl"
 browser = "chrome" if mac else "chromium-browser"
-tid_i_hver_fane = 20  # sekunder
+tid_i_hver_fane = 30  # sekunder
 
 
 # åpner google.com for å slippe "vil du gjenåpne faner" melding
 webbrowser.get(browser).open("https://www.google.com")
-time.sleep(2)
-os.system("pkill chromium")
-time.sleep(2)
-
+time.sleep(1)
 # åpner en innlogget nav-side som lukkes etter litt. Det løser redirect ved AD-innlogging
 temp_nav_side = "https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae/bemanning.html"
 webbrowser.get(browser).open(temp_nav_side)
-time.sleep(5)
+os.system("pkill chromium")
+time.sleep(2)
 
-# åpne alle faner og lukker temp_nav_side
+# åpne alle faner
 for tab in nettsider:
     webbrowser.get(browser).open(tab)
-    time.sleep(1)
-with pyautogui.hold(cmd):
-    pyautogui.press("1")
     time.sleep(0.5)
-    pyautogui.press("w")
-
-# gå i fullskjerm
-if not mac:
+if not mac: # gå i fullskjerm
     pyautogui.hotkey("f11")
 
 
