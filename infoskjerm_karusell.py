@@ -40,10 +40,10 @@ webbrowser.get(browser).open(temp_nav_side)
 os.system("pkill chromium")
 time.sleep(2)
 
-# åpne alle faner
+# åpne alle faner. RPIen trenger litt tid til å åpne hver fane riktig
 for tab in nettsider:
     webbrowser.get(browser).open(tab)
-    time.sleep(0.5)
+    time.sleep(30)
 if not mac: # gå i fullskjerm
     pyautogui.hotkey("f11")
 
