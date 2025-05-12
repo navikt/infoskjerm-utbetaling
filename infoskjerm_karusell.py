@@ -56,8 +56,6 @@ try:
         for fanenummer in alle_fanenummerene:
             with pyautogui.hold(cmd):
                 pyautogui.press(fanenummer)  # bytter fane med cmd+1, cmd+2 osv
-                if loop % 100 == 0:
-                    pyautogui.press("r")  # kjører en refresh av fanen innimellom
             time.sleep(tid_i_hver_fane)
         loop += 1
 except KeyboardInterrupt:  # tillater å stoppe loopen med ctrl+c
