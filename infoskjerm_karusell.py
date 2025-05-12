@@ -51,18 +51,11 @@ if not mac: # gå i fullskjerm
 loop = 0
 alle_fanenummerene = [str(i + 1) for i in range(len(nettsider))]
 
-try:
-    while True:
-        for fanenummer in alle_fanenummerene:
-            with pyautogui.hold(cmd):
-                pyautogui.press("pgdn")  # bytter fane med ctrl+Page Down
-            time.sleep(tid_i_hver_fane)
-        loop += 1
-except KeyboardInterrupt:  # tillater å stoppe loopen med ctrl+c
-    print("Avslutter loopen mellom faner")
-    pass
-except Exception as e:
-    print("En feil oppstod:", e)
-    pass
+while True:
+    for fanenummer in alle_fanenummerene:
+        with pyautogui.hold(cmd):
+            pyautogui.press("pgdn")  # bytter fane med ctrl+Page Down
+        time.sleep(tid_i_hver_fane)
+    loop += 1
 
 print("Avsluttet infoskjerm_karusell.py klokka", time.strftime("%H:%M:%S"))
