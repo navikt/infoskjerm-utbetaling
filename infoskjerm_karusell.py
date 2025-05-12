@@ -55,7 +55,7 @@ try:
     while True:
         for fanenummer in alle_fanenummerene:
             with pyautogui.hold(cmd):
-                pyautogui.press(fanenummer)  # bytter fane med cmd+1, cmd+2 osv
+                pyautogui.press("pgdn")  # bytter fane med ctrl+Page Down
             time.sleep(tid_i_hver_fane)
         loop += 1
 except KeyboardInterrupt:  # tillater å stoppe loopen med ctrl+c
