@@ -45,8 +45,8 @@ uføre = [
     
 ]
 
-
 ambisjoner_opm = [
+    # Ambisjoner for området
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#seksjonen',
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#ambisjon-1',
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#ambisjon-2',
@@ -55,10 +55,6 @@ ambisjoner_opm = [
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm3',
     'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm4',
 ]
-
-# temp:
-standardsider = standardsider + ambisjoner_opm
-
 
 alderspensjon = [
     "",
