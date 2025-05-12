@@ -13,6 +13,8 @@ try:
     for liste in aktive_sider.vis_følgende_lister_med_sider:
         if liste == "standardsider":
             nettsider += nettsidelenker.standardsider
+        elif liste == "ambisjoner_opm":
+            nettsider += nettsidelenker.ambisjoner_opm
         elif liste == "uføre":
             nettsider += nettsidelenker.uføre
         elif liste == "alderspensjon":
