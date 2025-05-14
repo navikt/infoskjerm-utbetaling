@@ -13,19 +13,19 @@ try: # hent valgt config fra fila INFOSKJERM_ID
         infoskjerm_id = f.read().strip()
         logging.info(f"Valgt konfigurasjon: {infoskjerm_id}")
 except FileNotFoundError:
-    logging.error("Filen INFOSKJERM_ID ble ikke funnet. Bruker standardkonfigurasjon.")
+    logging.error("Filen INFOSKJERM_ID ble ikke funnet. Bruker standardkonfigurasjon")
     infoskjerm_id = "standard"
 try: # last inn konfigurasjon fra YAML-fil
     with open("nettsider.yaml", "r") as f:
         yamlconfig = yaml.safe_load(f)
         yamlconfig = yamlconfig["infoskjermer"]
 except FileNotFoundError:
-    logging.error("Filen nettsider.yaml ble ikke funnet. Avslutter karusellen.")
+    logging.error("Filen nettsider.yaml ble ikke funnet. Avslutter karusellen")
     exit(1)
 
 # sjekk om infoskjerm_id finnes i YAML-fila
 if infoskjerm_id not in yamlconfig.keys():
-    logging.error(f"Konfigurasjon '{infoskjerm_id}' finnes ikke i nettsider.yaml. Avslutter karusellen.")
+    logging.error(f"Konfigurasjon '{infoskjerm_id}' finnes ikke i nettsider.yaml. Avslutter karusellen")
     exit(1)
 
 # hent nettsider, fanetid, browser, vis_standardnettsider. format:
@@ -78,10 +78,10 @@ try:
         time.sleep(fanetid)
         loop += 1
         if loop % 100 == 0 and loop > 0:
-            logging.info(f"Karusellen har rullet {loop} ganger Tidspunkt: {time.strftime('%Y-%m-%d %H:%M:%S')}")
+            logging.info(f"Karusellen har rullet {loop} ganger")
 except KeyboardInterrupt:
-    logging.info(f"Karusellen ble avbrutt manuelt. Tidspunkt: {time.strftime('%Y-%m-%d %H:%M:%S')}")
+    logging.info(f"Karusellen ble avbrutt manuelt")
 except Exception as e:
-    logging.error(f"En feil oppstod. Tidspunkt: {time.strftime('%Y-%m-%d %H:%M:%S')} Feil:\n {e}")
+    logging.error(f"En feil oppstod")
 finally:
-    logging.info(f"Avslutter karusellen, tidspunkt: {time.strftime('%Y-%m-%d %H:%M:%S')}")
+    logging.info(f"Avslutter karusellen")
