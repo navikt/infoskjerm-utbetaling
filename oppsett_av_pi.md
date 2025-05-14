@@ -27,7 +27,7 @@ Se full guide i Guide.md
     @xset s noblank
 
     # starter bash-script i infoskjerm-karusell
-    @lxterminal -t fra_autostart -e '. ~/Desktop/infoskjerm-karusell/karusell.sh'
+    @lxterminal -t fra_autostart -e ~/Desktop/infoskjerm-karusell/karusell.sh
     ````
 9. `sudo reboot`
 10. Sett opp daglig reboot av RPIen, med logg av rebooten:
