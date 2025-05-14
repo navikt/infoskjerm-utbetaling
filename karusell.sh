@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# OBS! Ved endring av denne fila må du etterpå også kjøre `chmod +x karusell.sh` og committe det!
+
 LOG_FILE=~/Desktop/infoskjerm-karusell/karusell.log
 
 # Starter logging
