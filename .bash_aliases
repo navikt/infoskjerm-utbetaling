@@ -9,6 +9,7 @@ alias mkvenv="python3 -m venv .venv && source .venv/bin/activate && pip install 
 alias gp="git pull"
 alias gfs="git fetch && git status -bs"
 alias glog="git log --oneline --graph --decorate --all"
+alias greset="git reset --hard origin/main"
 
 alias py="python3"
 
