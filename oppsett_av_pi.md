@@ -5,18 +5,18 @@ Se full guide i Guide.md
 1. Koble til wifi 'infoskjerm'
     - wifi-kortet til Rpien må whitelistes
     - skriv `ifconfig` i terminalen og send det etter "ether" under "wlan0" til Trond Aker (#tech-nettverk)
-1. Pass på at RPIen bruker X11 og ikke Wayland
+2. Pass på at RPIen bruker X11 og ikke Wayland
     - `sudo raspi-config` og velg "Advanced Options" -> "Wayland" -> velg X11, så reboot
-2. `sudo apt-get install xscreensaver`
-3. `sudo raspi-config` og skru av "screen blanking" under "display settings"
-2. Logg inn på AD-brukeren 'srvdevinfoskjerm111@nav.no'
+3. `sudo apt-get install xscreensaver`
+4. `sudo raspi-config` og skru av "screen blanking" under "display settings"
+5. Logg inn på AD-brukeren 'srvdevinfoskjerm111@nav.no'
     - Passord for wifi og sørvisbruker i GSM
     - Logg feks inn på: https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae
-4. `git clone http://github.com/navikt/infoskjerm-karusell.git`
-5. `cd infoskjerm-karusell` og `cp .bash_aliases ~/.bash_aliases`
-6. Tillat kjøring av bash-script`chmod +x karusell.sh`
-7. Lag et .venv og installer avhengigheter (autopygui). Bruk feks `mkvenv`
-8. `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` og legg til følgende linjer:
+6. `git clone http://github.com/navikt/infoskjerm-karusell.git`
+7. `cd infoskjerm-karusell` og `cp .bash_aliases ~/.bash_aliases`
+8. Tillat kjøring av bash-script`chmod +x karusell.sh`
+9. Lag et .venv og installer avhengigheter (autopygui). Bruk feks `mkvenv`
+10. `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` og legg til følgende linjer:
     ````bash
     ... # to linjer som allerede er der
 
@@ -29,13 +29,17 @@ Se full guide i Guide.md
     # starter bash-script i infoskjerm-karusell
     @lxterminal -t fra_autostart -e ~/Desktop/infoskjerm-karusell/karusell.sh
     ````
-9. `sudo reboot`
-10. Sett opp daglig reboot av RPIen, med logg av rebooten:
+11. `sudo reboot`
+12. Sett opp daglig reboot av RPIen, med logg av rebooten:
     - `sudo crontab -e` og legg til linjen:
     ```
     0 6 * * * echo "$(date) - Planlagt omstart av RPI med cron" >> ~/Desktop/infoskjerm-karusell/karusell.log && sudo reboot
     ```
-
+13. Dersom et grafanadasbord skal vises:
+    - se https://docs.nais.io/observability/metrics/how-to/grafana-from-infoscreen
+    - last ned Modify Header Value browser extension i Firefox (tror ikke det funker i chromium)
+    - hent token (Bearer) fra GoogleSecretManager
+    - se RPI "ledelse1" hvis det ikke funker
 Husk å zoome i nettleseren til passe størrelse. Det blir laget ved reboot.
 
 
