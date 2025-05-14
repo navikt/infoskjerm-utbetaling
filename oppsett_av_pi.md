@@ -34,7 +34,7 @@ Se full guide i Guide.md
 10. Sett opp daglig reboot av RPIen, med logg av rebooten:
     - `sudo crontab -e` og legg til linjen:
     ```
-    0 6 * * * sudo reboot && echo "$(date) - Systemet startet på nytt av cron" >> /var/log/reboot.log
+    0 6 * * * sudo reboot && echo "$(date) - Systemet startet på nytt av cron" >> ~/Desktop/infoskjerm-karusell/karusell.log
     ```
 
 Husk å zoome i nettleseren til passe størrelse. Det blir laget ved reboot.
