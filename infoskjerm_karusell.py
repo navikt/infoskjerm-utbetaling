@@ -4,6 +4,7 @@ import logging
 import pyautogui
 import webbrowser
 
+pyautogui.FAILSAFE = False  # pyautogui stopper ikke pga musepeker i hjørnet
 logging.basicConfig(filename='karusell.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logging.info("Kjører infoskjerm_karusell.py")
 
@@ -77,8 +78,10 @@ try:
         time.sleep(fanetid)
         loop += 1
         if loop % 100 == 0 and loop > 0:
-            logging.info(f"Karusellen har rullet {loop} ganger")
+            logging.info(f"Karusellen har rullet {loop} ganger Tidspunkt: {time.strftime('%Y-%m-%d %H:%M:%S')}")
 except KeyboardInterrupt:
-    logging.info("Karusellen ble avbrutt manuelt.")
+    logging.info(f"Karusellen ble avbrutt manuelt. Tidspunkt: {time.strftime('%Y-%m-%d %H:%M:%S')}")
 except Exception as e:
-    logging.error(f"En feil oppstod: {e}")
+    logging.error(f"En feil oppstod. Tidspunkt: {time.strftime('%Y-%m-%d %H:%M:%S')} Feil:\n {e}")
+finally:
+    logging.info(f"Avslutter karusellen, tidspunkt: {time.strftime('%Y-%m-%d %H:%M:%S')}")

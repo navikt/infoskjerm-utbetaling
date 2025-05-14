@@ -1,7 +1,8 @@
 #!/bin/bash
 LOG_FILE=~/Desktop/infoskjerm-karusell/karusell.log
 
-# Start logging. Print timestamp
+# Starter logging
+echo "" | tee -a "$LOG_FILE"
 echo "$(date +%Y-%m-%d_%H:%M:%S) - Starter opp karusell for infoskjerm" | tee -a "$LOG_FILE"
 
 # Sjekker om internett er tilgjengelig

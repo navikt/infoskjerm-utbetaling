@@ -26,15 +26,14 @@ Se full guide i Guide.md
     @xset -dpms
     @xset s noblank
 
-    # starter bash-script i infoskjerm-karusell etter 5 sekunder pause
-    @lxterminal -t tidsbuffer -e 'sleep 5; echo "Done" && exit'
-    @lxterminal -t karusellen -e ~/Desktop/infoskjerm-karusell/karusell.sh
+    # starter bash-script i infoskjerm-karusell
+    @lxterminal -t fra_autostart -e '. ~/Desktop/infoskjerm-karusell/karusell.sh'
     ````
 9. `sudo reboot`
 10. Sett opp daglig reboot av RPIen, med logg av rebooten:
     - `sudo crontab -e` og legg til linjen:
     ```
-    0 6 * * * sudo reboot && echo "$(date) - Systemet startet på nytt av cron" >> ~/Desktop/infoskjerm-karusell/karusell.log
+    0 6 * * * echo "$(date) - Planlagt omstart av RPI med cron" >> ~/Desktop/infoskjerm-karusell/karusell.log && sudo reboot
     ```
 
 Husk å zoome i nettleseren til passe størrelse. Det blir laget ved reboot.
