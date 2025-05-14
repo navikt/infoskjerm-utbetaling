@@ -6,8 +6,8 @@ alias venv="source .venv/bin/activate"
 alias .venv="source ../.venv/bin/activate"
 alias mkvenv="python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt"
 
-alias gpull="git pull"
-alias gs="git fetch && git status -bs"
+alias gp="git pull"
+alias gfs="git fetch && git status -bs"
 alias glog="git log --oneline --graph --decorate --all"
 
 alias py="python3"
