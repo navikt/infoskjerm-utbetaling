@@ -2,19 +2,18 @@
 
 Se full guide i Guide.md
 
-1. Koble til wifi 'infoskjerm'
-    - wifi-kortet til Rpien må whitelistes
-    - skriv `ifconfig` i terminalen og send det etter "ether" under "wlan0" til Trond Aker (#tech-nettverk)
+1. Koble til wifi 'infoskjerm' eller 'NAV-infoskjerm'
+    - passord for dette mm. i Google Secret Manager
+    - 'infoskjerm' gir også tilgang til grafana, men wifi-kortet til Rpien må whitelistes
+        - skriv `ifconfig` i terminalen og send det etter "ether" under "wlan0" til Trond Aker (#tech-nettverk)
 2. Pass på at RPIen bruker X11 og ikke Wayland
     - `sudo raspi-config` og velg "Advanced Options" -> "Wayland" -> velg X11, så reboot
 3. `sudo apt-get install xscreensaver`
 4. `sudo raspi-config` og skru av "screen blanking" under "display settings"
 5. Logg inn på AD-brukeren 'srvdevinfoskjerm111@nav.no'
-    - Passord for wifi og sørvisbruker i GSM
     - Logg feks inn på: https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae
 6. `git clone http://github.com/navikt/infoskjerm-karusell.git`
 7. `cd infoskjerm-karusell` og `cp .bash_aliases ~/.bash_aliases`
-8. Tillat kjøring av bash-script`chmod +x karusell.sh`
 9. Lag et .venv og installer avhengigheter (autopygui). Bruk feks `mkvenv`
 10. `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` og legg til følgende linjer:
     ````bash
@@ -39,7 +38,7 @@ Se full guide i Guide.md
     - se https://docs.nais.io/observability/metrics/how-to/grafana-from-infoscreen
     - last ned Modify Header Value browser extension i Firefox (tror ikke det funker i chromium)
     - hent token (Bearer) fra GoogleSecretManager
-    - se RPI "ledelse1" hvis det ikke funker
+    - se RPI "pensjonskalkulator" hvis det ikke funker
 Husk å zoome i nettleseren til passe størrelse. Det blir laget ved reboot.
 
 
