@@ -52,10 +52,10 @@ infoskjermer:
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#ambisjon-2'
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm4'
 
-  # infoskjerm 1 for ledelsen
+  # infoskjerm 1 for ledelsen - A612 / A614
   ledelsen1:
     fanetid: 30
-    browser: 'firefox' # firefox for å vise grafana
+    browser: 'chromium-browser' # grafana funker ikke riktig på denne RPIen
     vis_standardnettsider: True
     nettsider:
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#ambisjon-1'
@@ -65,28 +65,27 @@ infoskjermer:
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm3'
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm4'
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#how-to'
-      - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/5B4SLdY7z/soknad-om-alderspensjon-api-metrikker?orgId=1&refresh=90s'
 
   # infoskjerm 2 for ledelsen
   ledelsen2:
     fanetid: 30
-    browser: 'firefox' # firefox for å vise grafana
+    browser: 'chromium-browser'
     vis_standardnettsider: True
     nettsider:
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#how-to'
 
-  # pensjonskalkulator - RPI som heter det
+  # pensjonskalkulator - uplassert skjerm
   pensjonskalkulator:
     fanetid: 30
     vis_standardnettsider: True
-    browser: 'chromium-browser' # grafana er ikke satt opp på denne RPIen
+    browser: 'firefix' # grafana er satt opp
     nettsider:
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#how-to'
       - 'https://www.nrk.no/nyheter/'
       - 'https://app.eu.amplitude.com/analytics/share/fd7a2573a1a4435e90b4e5bc39c19bb4/tv'
-      # - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/0Qx_7cA4k/pensjonskalkulator?var-interval=2m&orgId=1&from=now-1h&to=now&timezone=browser&var-datasource=000000021&var-namespace=pensjonskalkulator&refresh=5m'
-      # - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/21xy6wD7k/pensjon-popp-opptjening?orgId=1&from=now-1h&to=now&timezone=browser&var-datasource=000000025&var-namespace=pensjonopptjening&var-app=pensjon-popp-q2&var-ingress_url=$__all'
-      # - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/V44K451ik/samhandling-oversikt?var-interval=1d&orgId=1&from=now-7d&to=now&timezone=browser&var-cluster=000000011&var-app=$__all&var-env=default&refresh=90s'
+      - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/0Qx_7cA4k/pensjonskalkulator?var-interval=2m&orgId=1&from=now-1h&to=now&timezone=browser&var-datasource=000000021&var-namespace=pensjonskalkulator&refresh=5m'
+      - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/21xy6wD7k/pensjon-popp-opptjening?orgId=1&from=now-1h&to=now&timezone=browser&var-datasource=000000025&var-namespace=pensjonopptjening&var-app=pensjon-popp-q2&var-ingress_url=$__all'
+      - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/V44K451ik/samhandling-oversikt?var-interval=1d&orgId=1&from=now-7d&to=now&timezone=browser&var-cluster=000000011&var-app=$__all&var-env=default&refresh=90s'
 
   # lokal testing på Mac
   lokalmac:
