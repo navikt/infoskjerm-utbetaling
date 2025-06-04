@@ -5,17 +5,19 @@ import pyautogui
 import webbrowser
 
 pyautogui.FAILSAFE = False  # pyautogui stopper ikke pga musepeker i hjørnet
-logging.basicConfig(filename='karusell.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    filename="karusell.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 logging.info("Kjører infoskjerm_karusell.py")
 
-try: # hent valgt config fra fila INFOSKJERM_ID
+try:  # hent valgt config fra fila INFOSKJERM_ID
     with open("INFOSKJERM_ID", "r") as f:
         infoskjerm_id = f.read().strip()
         logging.info(f"Valgt konfigurasjon: {infoskjerm_id}")
 except FileNotFoundError:
     logging.error("Filen INFOSKJERM_ID ble ikke funnet. Bruker standardkonfigurasjon")
     infoskjerm_id = "standard"
-try: # last inn konfigurasjon fra YAML-fil
+try:  # last inn konfigurasjon fra YAML-fil
     with open("nettsider.yaml", "r") as f:
         yamlconfig = yaml.safe_load(f)
         yamlconfig = yamlconfig["infoskjermer"]
@@ -25,7 +27,9 @@ except FileNotFoundError:
 
 # sjekk om infoskjerm_id finnes i YAML-fila
 if infoskjerm_id not in yamlconfig.keys():
-    logging.error(f"Konfigurasjon '{infoskjerm_id}' finnes ikke i nettsider.yaml. Avslutter karusellen")
+    logging.error(
+        f"Konfigurasjon '{infoskjerm_id}' finnes ikke i nettsider.yaml. Avslutter karusellen"
+    )
     exit(1)
 
 # hent nettsider, fanetid, browser, vis_standardnettsider. format:
@@ -38,7 +42,9 @@ standard_nettsider = yamlconfig["standard"]["nettsider"]
 # hent konfigurasjon for valgt infoskjerm
 browser = yamlconfig[infoskjerm_id].get("browser", standard_browser)
 fanetid = yamlconfig[infoskjerm_id].get("fanetid", standard_fanetid)
-vis_standardnettsider = yamlconfig[infoskjerm_id].get("vis_standardnettsider", standard_vis_standardnettsider)
+vis_standardnettsider = yamlconfig[infoskjerm_id].get(
+    "vis_standardnettsider", standard_vis_standardnettsider
+)
 nettsider = yamlconfig[infoskjerm_id].get("nettsider", [])
 
 if vis_standardnettsider:
@@ -53,7 +59,9 @@ ctrl = "ctrl" if infoskjerm_id != "lokalmac" else "command"
 #   - en innlogget nav-side som lukkes etter litt. Det løser redirect ved AD-innlogging
 webbrowser.get(browser).open("https://www.google.com")
 time.sleep(1)
-webbrowser.get(browser).open("https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae/bemanning.html")
+webbrowser.get(browser).open(
+    "https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae/bemanning.html"
+)
 time.sleep(2)
 pyautogui.hotkey(ctrl, "w")
 time.sleep(2)
@@ -68,7 +76,7 @@ for fane in nettsider:
     time.sleep(30)
 logging.info("Åpnet alle faner")
 if infoskjerm_id != "lokalmac":
-    pyautogui.hotkey("f11") # f11 er ikke fullskjerm på mac
+    pyautogui.hotkey("f11")  # f11 er ikke fullskjerm på mac
 
 
 loop = 0
