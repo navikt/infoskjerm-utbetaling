@@ -54,7 +54,7 @@ infoskjermer:
     browser: 'firefox' # har grafana satt opp
     vis_standardnettsider: False
     nettsider:
-      - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/be1209zqgpurkd/team-pensjonsbruker?orgId=1&from=now-24h&to=now&timezone=browser&var-cluster=000000021&refresh=30s
+      - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/be1209zqgpurkd/team-pensjonsbruker?orgId=1&from=now-24h&to=now&timezone=browser&var-cluster=000000021&refresh=30s'
       - 'https://media.snl.no/media/185807/standard_pride-flagg.png'
 
 
