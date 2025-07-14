@@ -48,6 +48,15 @@ infoskjermer:
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm4'
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#how-to'
 
+  # infoskjerm for pensjonsbruker ved A614
+  pensjonsbruker:
+    fanetid: 30
+    browser: 'firefox' # har grafana satt opp
+    vis_standardnettsider: False
+    nettsider:
+      - 'https://grafana-infoskjerm.nav.cloud.nais.io/d/be1209zqgpurkd/team-pensjonsbruker?orgId=1&from=now-24h&to=now&timezone=browser&var-cluster=000000021&refresh=30s
+      - 'https://media.snl.no/media/185807/standard_pride-flagg.png'
+
 
   # infoskjerm for Popp, pensjonsbrev og ekstern samhandling
   a641:
