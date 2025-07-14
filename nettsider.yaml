@@ -11,9 +11,9 @@ infoskjermer:
     vis_standardnettsider: True
     nettsider:
       - 'https://media.snl.no/media/185807/standard_pride-flagg.png'
-      - 'https://metabase.ansatt.nav.no/public/dashboard/4edc89a2-5f03-4b2c-8b21-7db77bee7e69?skjulte_omrader=&tab=406-ett-omr%C3%A5de&valgt_omrade=Seksjon+for+pensjon+og+uf%C3%B8retrygd&valgte_seksjoner='
+      - 'https://metabase.ansatt.nav.no/public/dashboard/4edc89a2-5f03-4b2c-8b21-7db77bee7e69?skjulte_omrader=&tab=406-ett-omr%C3%A5de&valgt_omrade=Seksjon+for+pensjon+og+uføretrygd&valgte_seksjoner='
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#pride'
-      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#pesysytelser'
+      - 'https://data.ansatt.nav.no/quarto/3c7de1ff-2a5b-4a0b-91f8-d2e68a60bb0d/infoskjerm-i-A6-plott.html#pesysytelser'
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#ukas-oppmerksomhet'
 
   # team Uføre sin infoskjerm
@@ -21,14 +21,15 @@ infoskjermer:
     fanetid: 30
     vis_standardnettsider: False
     nettsider:
+      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#beistet'
       - 'https://data.ansatt.nav.no/quarto/d1e4cefc-2658-4519-a8c0-0f29db301d9d/uforemottakere.html#tilgang-og-avgang'
-      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re'
-      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re-statistikknotat'
-      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re-statistikknotat-2'
+      - 'https://data.ansatt.nav.no/quarto/3c7de1ff-2a5b-4a0b-91f8-d2e68a60bb0d/infoskjerm-i-A6-plott.html#uføre'
+      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uføre-statistikk-notat'
+      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uføre-statistikk-notat-2'
       - 'https://metabase.ansatt.nav.no/public/dashboard/fe4fae92-28b3-4ccc-9376-1ed38fff7d0a?%25C3%25A5r=2025&brevtype=&m%25C3%25A5ned=&tab=381-infoskjerm1'
-      - 'https://metabase.ansatt.nav.no/public/dashboard/fe4fae92-28b3-4ccc-9376-1ed38fff7d0a?%25C3%25A5r=2025&brevtype=&m%25C3%25A5ned=&tab=380-oversikt'
-      - 'https://metabase.ansatt.nav.no/public/dashboard/4edc89a2-5f03-4b2c-8b21-7db77bee7e69?skjulte_omrader=&tab=406-ett-omr%C3%A5de&valgt_omrade=Seksjon+for+pensjon+og+uf%C3%B8retrygd&valgte_seksjoner='
-      - 'https://metabase.ansatt.nav.no/public/dashboard/4edc89a2-5f03-4b2c-8b21-7db77bee7e69?skjulte_omrader=&tab=405-teams-i-valgt-omr%C3%A5de&valgt_omrade=Seksjon+for+pensjon+og+uf%C3%B8retrygd&valgte_seksjoner='
+      - 'https://metabase.ansatt.nav.no/public/dashboard/fe4fae92-28b3-4ccc-9376-1ed38fff7d0a?%25C3%25A5r=2025&brevtype=&m%25C3%25A5ned=&skjul_m%25C3%25A5ned=&skjul_opprettet_av=BPEN091&tab=380-oversikt'
+      - 'https://metabase.ansatt.nav.no/public/dashboard/4edc89a2-5f03-4b2c-8b21-7db77bee7e69?skjulte_omrader=&tab=406-ett-omr%C3%A5de&valgt_omrade=Seksjon+for+pensjon+og+uføretrygd&valgte_seksjoner='
+      - 'https://metabase.ansatt.nav.no/public/dashboard/4edc89a2-5f03-4b2c-8b21-7db77bee7e69?skjulte_omrader=&tab=405-teams-i-valgt-omr%C3%A5de&valgt_omrade=Seksjon+for+pensjon+og+uføretrygd&valgte_seksjoner='
 
 
   # infoskjerm ved kaffemaskinen
@@ -36,10 +37,10 @@ infoskjermer:
     fanetid: 30
     vis_standardnettsider: True
     nettsider:
-      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re'
-      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#alder-og-afp'
-      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re-statistikknotat'
-      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uf%C3%B8re-statistikknotat-2'
+      - 'https://data.ansatt.nav.no/quarto/3c7de1ff-2a5b-4a0b-91f8-d2e68a60bb0d/infoskjerm-i-A6-plott.html#uføre'
+      - 'https://data.ansatt.nav.no/quarto/3c7de1ff-2a5b-4a0b-91f8-d2e68a60bb0d/infoskjerm-i-A6-plott.html#alder-og-afp'
+      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uføre-statistikk-notat'
+      - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#uføre-statistikk-notat-2'
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#ambisjon-1'
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#ambisjon-2'
       - 'https://data.ansatt.nav.no/quarto/672bf0f0-15f4-482e-8136-5b3c6096502a/infoskjerm-i-A6.html#opm1'
