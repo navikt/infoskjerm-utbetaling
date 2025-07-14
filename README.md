@@ -1,15 +1,21 @@
-Filer til infoskjermen på kontoret
+Infoskjermer i A6
 
 
 ## Hva er greia?
 
-- Raspberry Pien kjører en Python-fil som rullerer mellom ulike tabs i nettleseren
-- Ligger et standardsett med tabs i nettsidelenker.py
-    - På sikt kan det jo også være spesifikke tabs med feks en gitignored id-fil på pien
-- Repoet pulles til Raspberry Pien ved oppstart, og et shellscript kjører Python-fila
+- En Raspberry Pi er koblet til en TV, og rullerer mellom ulike nettsider
+- Alt skal funke automatisk ved oppstart og oppdateres minst en gang i døgnet
 
 
+## Hvordan legge til flere nettsider?
 
-## Hvordan sette opp Raspberry Pien?
+Det er mulig å legge til flere nettsider i rotasjonslisten til en RPi på følgende måte:
 
-Se guide.md for full guide, eller bare oppsett_av_pi.md for en kortversjon.
+- Legg til ny url i `nettsider.yaml` i dette github-repoet
+- Restart RPi-en, så blir endringene hentet fra gtihub.com
+- Hver RPi har en egen id for å skille dem fra hverandre (fila `INFOSKJERM_ID`)
+- Alle åpne nettsider kan vises, samt Metabase, Grafana og datafortellinger
+
+
+Hvis du er usikker, så bare snakk med Brynjar eller Eystein, feks på Slack #team-wendenboe
+
