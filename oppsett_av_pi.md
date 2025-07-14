@@ -9,12 +9,11 @@ Se full guide i Guide.md
 2. Pass på at RPIen bruker X11 og ikke Wayland
     - `sudo raspi-config` og velg "Advanced Options" -> "Wayland" -> velg X11, så reboot
 3. `sudo apt-get install xscreensaver`
+4. `curl -LsSf https://astral.sh/uv/install.sh | sh` for å installere uv
 4. `sudo raspi-config` og skru av "screen blanking" under "display settings"
 5. Logg inn på AD-brukeren 'srvdevinfoskjerm111@nav.no'
     - Logg feks inn på: https://data.ansatt.nav.no/quarto/0b700511-f50c-4059-b519-32fb19637bae
 6. `git clone http://github.com/navikt/infoskjerm-karusell.git`
-7. `cd infoskjerm-karusell` og `cp .bash_aliases ~/.bash_aliases`
-9. Lag et .venv og installer avhengigheter (autopygui). Bruk feks `mkvenv`
 10. `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` og legg til følgende linjer:
     ````bash
     ... # to linjer som allerede er der
@@ -32,7 +31,7 @@ Se full guide i Guide.md
 12. Sett opp daglig reboot av RPIen, med logg av rebooten:
     - `sudo crontab -e` og legg til linjen:
     ```
-    0 6 * * * echo "$(date) - Planlagt omstart av RPI med cron" >> ~/Desktop/infoskjerm-karusell/karusell.log && sudo reboot
+    0 6 * * * sudo reboot && echo "$(date) - Planlagt omstart av RPI med cron" >> /var/log/reboot.log
     ```
 13. Dersom et grafanadasbord skal vises:
     - se https://docs.nais.io/observability/metrics/how-to/grafana-from-infoscreen

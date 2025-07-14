@@ -88,8 +88,8 @@ try:
         if loop % 100 == 0 and loop > 0:
             logging.info(f"Karusellen har rullet {loop} ganger")
 except KeyboardInterrupt:
-    logging.info(f"Karusellen ble avbrutt manuelt")
+    logging.info("Karusellen ble avbrutt manuelt")
 except Exception as e:
-    logging.error(f"En feil oppstod")
+    logging.error(f"En feil oppstod {e}")
 finally:
-    logging.info(f"Avslutter karusellen")
+    logging.info("Avslutter karusellen")
