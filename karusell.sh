@@ -22,13 +22,13 @@ done
 # Oppdater rasberry pi
 echo "$(date +%Y-%m-%d_%H:%M:%S) - Oppdaterer Raspberry Pi" | tee -a "$LOG_FILE"
 sudo apt-get update >> "$LOG_FILE" 2>&1
-sudo apt-get upgrade -y >> "$LOG_FILE" 2>&1
+sudo apt-get upgrade -y
+sudo apt-get autoremove -y
 
-# oppdater uv og sync venv
+# oppdater uv
 uv self update >> "$LOG_FILE" 2>&1
-uv sync
 
 # Starter infoskjerm-karusell
 sleep 5
 lxterminal -t Karusellen -e 'sleep 2; cd ~/Desktop/infoskjerm-karusell; git pull; sleep 2; 
-uv run python infoskjerm_karusell.py; exec bash' >> "$LOG_FILE" 2>&1
+uv sync; uv run python infoskjerm_karusell.py; exec bash' >> "$LOG_FILE" 2>&1
