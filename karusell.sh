@@ -2,7 +2,7 @@
 
 # OBS! Ved endring av denne fila må du etterpå også kjøre `chmod +x karusell.sh` og committe det!
 
-LOG_FILE=~/Desktop/infoskjerm-karusell/karusell.log
+LOG_FILE=~/infoskjerm-utbetaling/karusell.log
 
 # Starter logging
 echo "" | tee -a "$LOG_FILE"
@@ -30,5 +30,5 @@ uv self update >> "$LOG_FILE" 2>&1
 
 # Starter infoskjerm-karusell
 sleep 5
-lxterminal -t Karusellen -e 'sleep 2; cd ~/Desktop/infoskjerm-karusell; git pull; sleep 2; 
+lxterminal -t Karusellen -e 'sleep 2; cd ~/infoskjerm-utbetaling; git pull; sleep 2; 
 uv sync; uv run python infoskjerm_karusell.py; exec bash' >> "$LOG_FILE" 2>&1
