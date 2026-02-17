@@ -81,6 +81,7 @@ if infoskjerm_id != "lokalmac":
 
 loop = 0
 try:
+
     while True:
         pyautogui.hotkey(ctrl, "pgdn")
         time.sleep(fanetid)
