@@ -7,6 +7,8 @@ import yaml
 from typing import Any, Optional
 from dataclasses import dataclass
 
+from logger import Logger
+
 @dataclass
 class ScreenConfig:
     infoskjerm_id: str
@@ -35,13 +37,19 @@ def load_screen_id_from_file(filename: str = "INFOSKJERM_ID")  -> str:
 
 
 def load_config(filename: str = "nettsider.yaml") -> dict[str,ScreenConfig]:
-    with open(filename) as file:
-        yaml_config = yaml.safe_load(file)
+    try:
+        with open(filename) as file:
+            yaml_config = yaml.safe_load(file)
+    except FileNotFoundError:
+        raise FileNotFoundError("Config for screens was not found! Default name is nettsider.yaml.")
 
-    raw_screen_configs= yaml_config["infoskjermer"]
+    try:
+        raw_screen_configs= yaml_config["infoskjermer"]
+    except KeyError:
+        raise KeyError("The field 'infoskjermer' was not found in config file.")
 
-    screen_configs = {key:ScreenConfig.from_dict(screen_id=key, config=value) for key, value in raw_screen_configs.items()}
-
+    screen_configs = {key:ScreenConfig.from_dict(screen_id=key, config=value)
+                      for key, value in raw_screen_configs.items()}
 
     return screen_configs
 
@@ -86,15 +94,28 @@ def fullscreen(config: ScreenConfig) -> None:
 
     pyautogui.hotkey(*command)
 
-def switch_between_tabs(config:ScreenConfig) -> None:
-    command = ("ctrl", "tab")
+def switch_between_tabs(config:ScreenConfig, logger: Logger,  n_scroll_downs: int = 3) -> None:
+    switch_tab_command = ("ctrl", "tab")
+    scroll_down_command = ("fn", "down")
+    count = 0
     while True:
-        pyautogui.hotkey(*command)
+        pyautogui.hotkey(*switch_tab_command)
+        count += 1
         time.sleep(config.fanetid)
+        for i in range(n_scroll_downs):
+            pyautogui.hotkey(*scroll_down_command)
+            time.sleep(config.fanetid)
+
+        if count % len(config.nettsider) == 0:
+            logger.info(f"Karusellen har rullet {count/len(config.nettsider)}")
 
 
 def main():
+    logger = Logger(name="Infoskjerm karusell")
+    logger.info("Starter karusell...")
     screen_id = load_screen_id_from_file()
+
+    logger.info(f"Bruker {screen_id} config for karusellen.")
     screen_configs=load_config()
 
     standard_config = get_config(screen_configs=screen_configs, screen_id="standard")
@@ -102,9 +123,10 @@ def main():
 
     prepared_config = prepare_config(config=config, standard_config=standard_config)
 
+    logger.info(f"Åpner faner...")
     open_tabs(config=prepared_config)
     fullscreen(config=prepared_config)
-    switch_between_tabs(config=prepared_config)
+    switch_between_tabs(config=prepared_config, logger=logger)
 
 
 if __name__ == "__main__":
