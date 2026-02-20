@@ -31,6 +31,16 @@ infoskjermer:
       - "https://metabase.ansatt.nav.no/dashboard/997-beregninger?beregnet_dato_intervall=&faggruppe=&fagomr%25C3%25A5de=&h%25C3%25A5ndteres_manuelt=0&oppl%25C3%25B8sning=day&relativ_beregnet_dato=past1years&tab=1013-bruttobel%C3%B8p&ventestatus=Avventer+avregning++++++++++++++++++++++&ventestatus=Beregnet+arbeidsgiverref++++++++++++++++&ventestatus=Beregnet+i+oppdragssystemet+++++++++++++&ventestatus=Etteroppgj%C3%B8r+negativt+med+%C3%A5pent+kravgrl+&ventestatus=Feil+p%C3%A5+beregningen+++++++++++++++++++++&ventestatus=Feilutbetaling++++++++++++++++++++++++++&ventestatus=Manglende+svar+%2F+har+ikke+skattekort.+++&ventestatus=Midlertidig+stopp+av+overf%C3%B8ring+UR++++++&ventestatus=Ny+beregning+v%2Fendring+av+skatt%2Ftrekk+++&ventestatus=Overf%C3%B8rt+UR+++++++++++++++++++++++++++++&ventestatus=Periode+ikke+utbet%2C+navn%2Fadresse+mangler&ventestatus=Periode+stoppet+pga+korrigering+++++++++&ventestatus=Reaktivert.+Klar+for+overf%C3%B8ring+til+UR++&ventestatus=Returnert+fra+UR++++++++++++++++++++++++"
       - "https://metabase.ansatt.nav.no/dashboard/997-beregninger?beregnet_dato_intervall=&faggruppe=&fagomr%25C3%25A5de=&h%25C3%25A5ndteres_manuelt=0&oppl%25C3%25B8sning=day&relativ_beregnet_dato=past1years&tab=1029-om-dataen&ventestatus=Avventer+avregning++++++++++++++++++++++&ventestatus=Beregnet+arbeidsgiverref++++++++++++++++&ventestatus=Beregnet+i+oppdragssystemet+++++++++++++&ventestatus=Etteroppgj%C3%B8r+negativt+med+%C3%A5pent+kravgrl+&ventestatus=Feil+p%C3%A5+beregningen+++++++++++++++++++++&ventestatus=Feilutbetaling++++++++++++++++++++++++++&ventestatus=Manglende+svar+%2F+har+ikke+skattekort.+++&ventestatus=Midlertidig+stopp+av+overf%C3%B8ring+UR++++++&ventestatus=Ny+beregning+v%2Fendring+av+skatt%2Ftrekk+++&ventestatus=Overf%C3%B8rt+UR+++++++++++++++++++++++++++++&ventestatus=Periode+ikke+utbet%2C+navn%2Fadresse+mangler&ventestatus=Periode+stoppet+pga+korrigering+++++++++&ventestatus=Reaktivert.+Klar+for+overf%C3%B8ring+til+UR++&ventestatus=Returnert+fra+UR++++++++++++++++++++++++"
 
+
+  # Team utsikt test
+  utsikt-test:
+    fanetid: 2
+    browser: chrome
+    vis_standarnettsider: False
+    nettsider:
+      - "https://vg.no"
+      - "https://nrk.no"
+
   # team Uføre sin infoskjerm
   uføre:
     fanetid: 30

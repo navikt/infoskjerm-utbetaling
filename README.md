@@ -1,6 +1,5 @@
 Infoskjermer i A6
 
-
 ## Hva er greia?
 
 - En Raspberry Pi er koblet til en TV, og rullerer mellom ulike nettsider

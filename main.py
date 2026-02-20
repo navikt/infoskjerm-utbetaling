@@ -88,26 +88,33 @@ def open_tabs(config: ScreenConfig) -> None:
 
 def fullscreen(config: ScreenConfig) -> None:
     if config.infoskjerm_id == "lokalmac":
-        command = ("ctrl","command", "f")
+        command = ["ctrl","command", "f"]
     else:
-        command = "f11"
+        command = ["f11"]
 
     pyautogui.hotkey(*command)
 
-def switch_between_tabs(config:ScreenConfig, logger: Logger,  n_scroll_downs: int = 3) -> None:
-    switch_tab_command = ("ctrl", "tab")
-    scroll_down_command = ("fn", "down")
+def switch_between_tabs(config:ScreenConfig, logger: Logger,  n_scroll: int = 1) -> None:
+    switch_tab_command = ["ctrl", "tab"]
+    scroll_down_command = ["pagedown"]
+    scroll_up_command = ["pageup"]
+
     count = 0
     while True:
         pyautogui.hotkey(*switch_tab_command)
         count += 1
         time.sleep(config.fanetid)
-        for i in range(n_scroll_downs):
+
+        for i in range(n_scroll):
+            pyautogui.hotkey(*scroll_up_command)
+            time.sleep(config.fanetid)
+
+        for i in range(n_scroll):
             pyautogui.hotkey(*scroll_down_command)
             time.sleep(config.fanetid)
 
         if count % len(config.nettsider) == 0:
-            logger.info(f"Karusellen har rullet {count/len(config.nettsider)}")
+            logger.info(f"Karusellen har rullet {int(count/len(config.nettsider))}")
 
 
 def main():
