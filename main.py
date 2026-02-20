@@ -83,7 +83,7 @@ def prepare_config(config: ScreenConfig, standard_config: ScreenConfig) -> Scree
 def open_tabs(config: ScreenConfig) -> None:
     for nettside in config.nettsider:
         webbrowser.open(nettside)
-        time.sleep(30)
+        time.sleep(config.fanetid)
 
 
 def fullscreen(config: ScreenConfig) -> None:
