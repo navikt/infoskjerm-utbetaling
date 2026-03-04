@@ -1,11 +1,13 @@
+import datetime
 import webbrowser
 import time
 
 import pyautogui
 import yaml
 
+
 from typing import Any, Optional
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from logger import Logger
 
@@ -25,6 +27,26 @@ class ScreenConfig:
                    vis_standardnettsider=config.get("vis_standardnettsider"),
                    nettsider=config.get("nettsider"),
                    browser=config.get("browser"))
+
+
+@dataclass
+class TimeToRefresh:
+    ttr: datetime.timedelta
+    last_refresh_datetime: datetime.datetime = field(init=False)
+
+
+    def __post_init__(self):
+        self.last_refresh_datetime = datetime.datetime.now()
+
+    def should_refresh(self) -> bool:
+        if  datetime.datetime.now() >  self.last_refresh_datetime +  self.ttr:
+            self.last_refresh_datetime = datetime.datetime.now()
+            return True
+        else:
+            return False
+
+
+
 
 def load_screen_id_from_file(filename: str = "INFOSKJERM_ID")  -> str:
     try:
@@ -87,33 +109,54 @@ def open_tabs(config: ScreenConfig) -> None:
 
 
 def fullscreen(config: ScreenConfig) -> None:
-    if config.infoskjerm_id == "lokalmac":
+    if config.infoskjerm_id == "lokalmac" or "utsikt-test":
         command = ["ctrl","command", "f"]
     else:
         command = ["f11"]
 
     pyautogui.hotkey(*command)
 
-def switch_between_tabs(config:ScreenConfig, logger: Logger,  n_scroll: int = 1) -> None:
-    switch_tab_command = ["ctrl", "tab"]
+def scroll_n_times(config: ScreenConfig, n: int, down: bool) -> None:
     scroll_down_command = ["pagedown"]
     scroll_up_command = ["pageup"]
 
+    for i in range(n):
+        if down:
+            pyautogui.hotkey(*scroll_down_command)
+        elif not down:
+            pyautogui.hotkey(*scroll_up_command)
+        else:
+            raise ValueError(f"down input must be a bool, but got {type(down)}!")
+
+    time.sleep(config.fanetid)
+
+
+def switch_between_tabs(config:ScreenConfig, logger: Logger,  n_scroll: int = 1) -> None:
+    switch_tab_command = ["ctrl", "tab"]
+    refresh_command =["ctrl", "r"]
+
+    time_to_refresh = TimeToRefresh(ttr=datetime.timedelta(minutes=1))
+
     count = 0
     while True:
+        if time_to_refresh.should_refresh():
+            for _ in range(len(config.nettsider)):
+                count += 1
+                pyautogui.hotkey(*refresh_command)
+                time.sleep(config.fanetid)
+                pyautogui.hotkey(*switch_tab_command)
+                time.sleep(config.fanetid)
+
+
         pyautogui.hotkey(*switch_tab_command)
         count += 1
         time.sleep(config.fanetid)
 
-        for i in range(n_scroll):
-            pyautogui.hotkey(*scroll_up_command)
-            time.sleep(config.fanetid)
+        scroll_n_times(config=config, n=n_scroll, down=False)
+        scroll_n_times(config=config, n=n_scroll, down=True)
 
-        for i in range(n_scroll):
-            pyautogui.hotkey(*scroll_down_command)
-            time.sleep(config.fanetid)
 
-        if count % len(config.nettsider) == 0:
+        if count % 10*len(config.nettsider) == 0:
             logger.info(f"Karusellen har rullet {int(count/len(config.nettsider))}")
 
 

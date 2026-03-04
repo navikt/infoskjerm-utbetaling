@@ -38,8 +38,8 @@ infoskjermer:
     browser: chrome
     vis_standarnettsider: False
     nettsider:
-      - "https://vg.no"
       - "https://nrk.no"
+      - "https://vg.no"
 
   # team Uføre sin infoskjerm
   uføre:
