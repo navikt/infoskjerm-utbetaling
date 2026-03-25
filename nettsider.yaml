@@ -11,7 +11,7 @@ infoskjermer:
     browser: firefox
     vis_standardnettsider: False
     nettsider:
-      - "https://metabase.ansatt.nav.no/public/dashboard/60585a5d-9e80-4fa9-a8d0-ccc49a4a0c52#theme=night"
+      - "https://metabase.ansatt.nav.no/public/dashboard/60585a5d-9e80-4fa9-a8d0-ccc49a4a0c52?dato_status_avsluttet_filter=past30days&faggruppe=&relativ_beregnet_dato=past7days&tab=906-antall-beregninger&tidsgruppering_status_avsluttet=day&tidsoppl%25C3%25B8sning=day#theme=night"
       - "https://metabase.ansatt.nav.no/public/dashboard/60585a5d-9e80-4fa9-a8d0-ccc49a4a0c52?dato_status_avsluttet_filter=past30days&faggruppe=&relativ_beregnet_dato=past7days&tab=907-ventestatus-manuell&tidsgruppering_status_avsluttet=day&tidsoppl%25C3%25B8sning=day#theme=night"
       - "https://metabase.ansatt.nav.no/public/dashboard/60585a5d-9e80-4fa9-a8d0-ccc49a4a0c52?dato_status_avsluttet_filter=past30days&faggruppe=&relativ_beregnet_dato=past7days&tab=1013-bruttobel%C3%B8p&tidsgruppering_status_avsluttet=day&tidsoppl%25C3%25B8sning=day#theme=night"
 

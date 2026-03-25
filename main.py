@@ -11,6 +11,7 @@ from dataclasses import dataclass, field
 
 from logger import Logger
 
+
 @dataclass
 class ScreenConfig:
     infoskjerm_id: str
@@ -19,14 +20,15 @@ class ScreenConfig:
     fanetid: Optional[int] = None
     browser: Optional[str] = None
 
-
     @classmethod
     def from_dict(cls, screen_id: str, config: dict[str, Any]) -> "ScreenConfig":
-        return cls(infoskjerm_id=screen_id,
-                   fanetid=config.get("fanetid"),
-                   vis_standardnettsider=config.get("vis_standardnettsider"),
-                   nettsider=config.get("nettsider"),
-                   browser=config.get("browser"))
+        return cls(
+            infoskjerm_id=screen_id,
+            fanetid=config.get("fanetid"),
+            vis_standardnettsider=config.get("vis_standardnettsider"),
+            nettsider=config.get("nettsider"),
+            browser=config.get("browser"),
+        )
 
 
 @dataclass
@@ -34,21 +36,18 @@ class TimeToRefresh:
     ttr: datetime.timedelta
     last_refresh_datetime: datetime.datetime = field(init=False)
 
-
     def __post_init__(self):
         self.last_refresh_datetime = datetime.datetime.now()
 
     def should_refresh(self) -> bool:
-        if  datetime.datetime.now() >  self.last_refresh_datetime +  self.ttr:
+        if datetime.datetime.now() > self.last_refresh_datetime + self.ttr:
             self.last_refresh_datetime = datetime.datetime.now()
             return True
         else:
             return False
 
 
-
-
-def load_screen_id_from_file(filename: str = "INFOSKJERM_ID")  -> str:
+def load_screen_id_from_file(filename: str = "INFOSKJERM_ID") -> str:
     try:
         with open(filename) as file:
             screen_id = file.read().strip()
@@ -58,20 +57,24 @@ def load_screen_id_from_file(filename: str = "INFOSKJERM_ID")  -> str:
     return screen_id
 
 
-def load_config(filename: str = "nettsider.yaml") -> dict[str,ScreenConfig]:
+def load_config(filename: str = "nettsider.yaml") -> dict[str, ScreenConfig]:
     try:
         with open(filename) as file:
             yaml_config = yaml.safe_load(file)
     except FileNotFoundError:
-        raise FileNotFoundError("Config for screens was not found! Default name is nettsider.yaml.")
+        raise FileNotFoundError(
+            "Config for screens was not found! Default name is nettsider.yaml."
+        )
 
     try:
-        raw_screen_configs= yaml_config["infoskjermer"]
+        raw_screen_configs = yaml_config["infoskjermer"]
     except KeyError:
         raise KeyError("The field 'infoskjermer' was not found in config file.")
 
-    screen_configs = {key:ScreenConfig.from_dict(screen_id=key, config=value)
-                      for key, value in raw_screen_configs.items()}
+    screen_configs = {
+        key: ScreenConfig.from_dict(screen_id=key, config=value)
+        for key, value in raw_screen_configs.items()
+    }
 
     return screen_configs
 
@@ -80,7 +83,7 @@ def get_config(screen_configs: dict[str, ScreenConfig], screen_id: str) -> Scree
     if screen_id in screen_configs.keys():
         return screen_configs[screen_id]
     else:
-        return screen_configs["standard"]
+        return screen_configs["utsikt-test"]
 
 
 def prepare_config(config: ScreenConfig, standard_config: ScreenConfig) -> ScreenConfig:
@@ -110,11 +113,12 @@ def open_tabs(config: ScreenConfig) -> None:
 
 def fullscreen(config: ScreenConfig) -> None:
     if config.infoskjerm_id == "lokalmac" or "utsikt-test":
-        command = ["ctrl","command", "f"]
+        command = ["ctrl", "command", "f"]
     else:
         command = ["f11"]
 
     pyautogui.hotkey(*command)
+
 
 def scroll_n_times(config: ScreenConfig, n: int, down: bool) -> None:
     scroll_down_command = ["pagedown"]
@@ -131,9 +135,11 @@ def scroll_n_times(config: ScreenConfig, n: int, down: bool) -> None:
     time.sleep(config.fanetid)
 
 
-def switch_between_tabs(config:ScreenConfig, logger: Logger,  n_scroll: int = 1) -> None:
+def switch_between_tabs(
+    config: ScreenConfig, logger: Logger, n_scroll: int = 1
+) -> None:
     switch_tab_command = ["ctrl", "tab"]
-    refresh_command =["ctrl", "r"]
+    refresh_command = ["ctrl", "r"]
 
     time_to_refresh = TimeToRefresh(ttr=datetime.timedelta(minutes=1))
 
@@ -147,7 +153,6 @@ def switch_between_tabs(config:ScreenConfig, logger: Logger,  n_scroll: int = 1)
                 pyautogui.hotkey(*switch_tab_command)
                 time.sleep(config.fanetid)
 
-
         pyautogui.hotkey(*switch_tab_command)
         count += 1
         time.sleep(config.fanetid)
@@ -155,8 +160,7 @@ def switch_between_tabs(config:ScreenConfig, logger: Logger,  n_scroll: int = 1)
         scroll_n_times(config=config, n=n_scroll, down=False)
         scroll_n_times(config=config, n=n_scroll, down=True)
 
-
-        if count % 10*len(config.nettsider) == 0:
+        if count % 10 * len(config.nettsider) == 0:
             logger.info(f"Karusellen har rullet {int(count/len(config.nettsider))}")
 
 
@@ -166,7 +170,7 @@ def main():
     screen_id = load_screen_id_from_file()
 
     logger.info(f"Bruker {screen_id} config for karusellen.")
-    screen_configs=load_config()
+    screen_configs = load_config()
 
     standard_config = get_config(screen_configs=screen_configs, screen_id="standard")
     config = get_config(screen_configs=screen_configs, screen_id=screen_id)
